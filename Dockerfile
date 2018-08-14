@@ -14,6 +14,8 @@ ADD container/ /
 
 WORKDIR /cubesviewer-server/cvapp
 
+VOLUME /cubesviewer-server/cvapp
+
 EXPOSE 8000
 
 ENTRYPOINT ["/entrypoint.sh"]
