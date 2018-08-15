@@ -4,7 +4,7 @@
 
 ## DNS
 
-Your DNS server must know about `cubes.local` ([Cubes](https://github.com/DataBrewery/cubes) server) and `cubesviewer-server.local` (this server) hosts.
+Your DNS server must know about `cubes.local` ([Cubes](https://github.com/DataBrewery/cubes) server, e. g. [in another container](https://github.com/alexanderfefelov/docker-cubes)) and `cubesviewer-server.local` (this server) hosts.
 
 Try
 
@@ -26,4 +26,4 @@ Run:
       --publish 8000:8000 \
       alexanderfefelov/cubesviewer-server
 
-Point your browser to <http://cubesviewer-server.local:8000/cubesviewer/> with `admin` / `admin` credentials.
+Point your browser to <http://cubesviewer-server.local:8000/cubesviewer/> with `admin` / `admin` or `user` / `user` credentials.
