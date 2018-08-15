@@ -8,7 +8,7 @@ RUN tar xfz /v$CUBESVIEWER_SERVER_VERSION.tar.gz \
   && rm --force /v$CUBESVIEWER_SERVER_VERSION.tar.gz \
   && mv cubesviewer-server-$CUBESVIEWER_SERVER_VERSION /cubesviewer-server \
   && cd /cubesviewer-server \
-  && pip --quiet install -r requirements.txt
+  && pip --quiet install --requirement requirements.txt
 
 ADD container/ /
 

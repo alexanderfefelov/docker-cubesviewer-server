@@ -26,4 +26,4 @@ Run:
       --publish 8000:8000 \
       alexanderfefelov/cubesviewer-server
 
-Point your browser to <http://cubesviewer-server.local:8000/cubesviewer/> with credentials `admin` / `admin`.
+Point your browser to <http://cubesviewer-server.local:8000/cubesviewer/> with `admin` / `admin` credentials.
