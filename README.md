@@ -4,26 +4,33 @@
 
 ## DNS
 
-Your DNS server must know about `cubes.local` ([Cubes](https://github.com/DataBrewery/cubes) server, e. g. [in another container](https://github.com/alexanderfefelov/docker-cubes)) and `cubesviewer-server.local` (this server) hosts.
+Your DNS server must resolve `cubes.test` ([Cubes](https://github.com/DataBrewery/cubes) server,
+e. g. [in another container](https://github.com/alexanderfefelov/docker-cubes))
+and `cubesviewer-server.test` (this server) hosts.
 
 Try
 
-    curl http://cubes.local:5000/info
+    curl http://cubes.test:5000/info
 
 to check Cubes server availability.
 
 ## Build and run
 
-Build:
+Build (there is an automated build on the Docker Hub, so you can skip this step):
 
     docker build --tag alexanderfefelov/cubesviewer-server .
 
 Run:
 
-    docker run --name cubesviewer-server \
+    docker run
+      --name cubesviewer-server \
       --detach \
-      --volume /etc/localtime:/etc/localtime:ro \
+      --restart unless-stopped \
+      --volume /etc/localtime:/etc/localtime:ro --volume /etc/timezone:/etc/timezone:ro \
       --publish 8000:8000 \
+      --log-opt max-size=10m --log-opt max-file=5 \
       alexanderfefelov/cubesviewer-server
 
-Point your browser to <http://cubesviewer-server.local:8000/cubesviewer/> with `admin` / `admin` or `user` / `user` credentials.
+Point your browser to <http://cubesviewer-server.test:8000/cubesviewer>
+(or <http://cubesviewer-server.test:8000/admin> for Django admin) with `admin` / `admin`
+or `user` / `user` credentials.

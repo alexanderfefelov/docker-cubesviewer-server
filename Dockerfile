@@ -2,10 +2,12 @@ FROM python:2.7-slim-stretch
 
 ENV CUBESVIEWER_SERVER_VERSION=2.0.2
 
-ADD https://github.com/jjmontesl/cubesviewer-server/archive/v$CUBESVIEWER_SERVER_VERSION.tar.gz /
+ENV CUBESVIEWER_SERVER_STUFF=v$CUBESVIEWER_SERVER_VERSION.tar.gz
 
-RUN tar xfz /v$CUBESVIEWER_SERVER_VERSION.tar.gz \
-  && rm --force /v$CUBESVIEWER_SERVER_VERSION.tar.gz \
+ADD https://github.com/jjmontesl/cubesviewer-server/archive/$CUBESVIEWER_SERVER_STUFF /
+
+RUN tar xfz /$CUBESVIEWER_SERVER_STUFF \
+  && rm --force /$CUBESVIEWER_SERVER_STUFF \
   && mv cubesviewer-server-$CUBESVIEWER_SERVER_VERSION /cubesviewer-server \
   && cd /cubesviewer-server \
   && pip --quiet install --requirement requirements.txt
@@ -13,10 +15,6 @@ RUN tar xfz /v$CUBESVIEWER_SERVER_VERSION.tar.gz \
 ADD container/ /
 
 WORKDIR /cubesviewer-server/cvapp
-
-VOLUME /cubesviewer-server/cvapp
-
-EXPOSE 8000
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

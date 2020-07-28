@@ -34,7 +34,7 @@ DATABASES = {
 # Base Cubes Server URL.
 # Your Cubes Server needs to be running and listening on this URL, and it needs
 # to be accessible to clients of the application.
-CUBESVIEWER_CUBES_URL = "http://cubes.local:5000"
+CUBESVIEWER_CUBES_URL = "http://cubes.test:5000"
 
 # CubesViewer Store backend URL. It should point to this application.
 # Note that this must match the URL that you use to access the application,
@@ -42,7 +42,7 @@ CUBESVIEWER_CUBES_URL = "http://cubes.local:5000"
 # via http://localhost:8000, use the same here. Note that 127.0.0.1 and
 # 'localhost' are different strings for this purpose. (If you wish to accept
 # requests from different URLs, you may need to add CORS support).
-CUBESVIEWER_BACKEND_URL = "http://cubesviewer-server.local:8000/cubesviewer"
+CUBESVIEWER_BACKEND_URL = "http://cubesviewer-server.test:8000/cubesviewer"
 
 # Optional user and password tuple to access the backend, or False
 # (only applies when CubesViewer Cubes proxy is used)
@@ -69,7 +69,7 @@ CUBESVIEWER_PROXY_ACL = [ ]
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'q7@$_+^^na@k!adnet*4^=e@)06q_=gmoena1g=g-f*vc!vlfe'
+SECRET_KEY = 'jmb8lnVUyUjh1Q$q8qN^noJs'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -216,10 +216,3 @@ LOGGING = {
         },
     },
 }
-
-
-
-
-
-
-
