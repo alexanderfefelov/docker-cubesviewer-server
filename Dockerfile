@@ -10,7 +10,7 @@ RUN apt-get -qq update \
   && apt-get -qq install --no-install-recommends \
        curl `# For health checks` \
        > /dev/null \
-  && tar xfz /$CUBESVIEWER_SERVER_STUFF \
+  && tar --extract --gzip --file /$CUBESVIEWER_SERVER_STUFF \
   && rm --force /$CUBESVIEWER_SERVER_STUFF \
   && mv cubesviewer-server-$CUBESVIEWER_SERVER_VERSION /cubesviewer-server \
   && cd /cubesviewer-server \
