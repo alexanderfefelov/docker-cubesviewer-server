@@ -11,12 +11,12 @@ RUN apt-get -qq update \
        curl `# For health checks` \
        > /dev/null \
   && tar --extract --gzip --file /$CUBESVIEWER_SERVER_STUFF \
-  && rm --force /$CUBESVIEWER_SERVER_STUFF \
   && mv cubesviewer-server-$CUBESVIEWER_SERVER_VERSION /cubesviewer-server \
   && cd /cubesviewer-server \
   && pip --quiet install --requirement requirements.txt \
   && apt-get -qq clean \
-  && rm --recursive --force /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  && rm --recursive --force /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+  && rm --force /$CUBESVIEWER_SERVER_STUFF
 
 ADD container/ /
 
