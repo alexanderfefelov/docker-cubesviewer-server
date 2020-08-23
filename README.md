@@ -22,7 +22,7 @@ Build (there is an automated build on the Docker Hub, so you can skip this step)
 
 Run:
 
-    docker run
+    docker run \
       --name cubesviewer-server \
       --detach \
       --restart unless-stopped \
